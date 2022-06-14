@@ -31,7 +31,7 @@ SECRET_KEY = '4ye@ngsf!+evykub85q56r@tx-ulrh=%-6(3t--!s(@n1j+*v_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['recycleitbackend.herokuapp.com']
+ALLOWED_HOSTS = ['cleanit-backend.herokuapp.com']
 
 
 # Application definition
