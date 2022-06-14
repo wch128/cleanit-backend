@@ -107,7 +107,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'RecycleITBackend.wsgi.application'
 
-DATABASE_URL = ' postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89@ec2-54-147-33-38.compute-1.amazonaws.com:5432/d4gebd9ckjsrcd'
+DATABASE_URL = 'postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89@ec2-54-147-33-38.compute-1.amazonaws.com:5432/d4gebd9ckjsrcd'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
