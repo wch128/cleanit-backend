@@ -114,7 +114,7 @@ DATABASE_URL = 'postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9f
 
 db_from_env = dj_database_url.config(conn_max_age=600)
 
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
+DATABASES = {'default': dj_database_url.config(db_from_env ) }
 
 #DATABASES = {
   #  'default': {
