@@ -108,13 +108,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'RecycleITBackend.wsgi.application'
 
-DATABASE_URL = 'postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89@ec2-54-147-33-38.compute-1.amazonaws.com:5432/d4gebd9ckjsrcd'
+DATABASE_URL = 'postgres://lyiohmhtsjivhm:998edbeb4f7fddb1ceb5df41c05c273fcfd946cb5ef816d987bafcc7a8f5e27d@ec2-54-147-33-38.compute-1.amazonaws.com:5432/d6p8cd8d6qjr2p'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 db_from_env = dj_database_url.config(conn_max_age=600)
-
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
+DATABASES = {'default':  dj_database_url.config(conn_max_age=600, ssl_require=True)}
+#DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
 
 #DATABASES = {
   #  'default': {
