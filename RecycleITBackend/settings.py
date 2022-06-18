@@ -111,6 +111,8 @@ DATABASE_URL = 'postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9f
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
+
 #DATABASES = {
   #  'default': {
   #      'ENGINE': 'django.db.backends.sqlite3',
@@ -121,16 +123,16 @@ DATABASE_URL = 'postgres://kmziqrjgwyajvy:dba72c2fdcc4e0c3ed62c52865a42309741b9f
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd4gebd9ckjsrcd',
-        'USER': 'kmziqrjgwyajvy',
-        'PASSWORD': 'dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89',
-        'HOST': 'ec2-54-147-33-38.compute-1.amazonaws.com',
-        'PORT': '5432'
-    }
-}
+#DATABASES = {
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'd4gebd9ckjsrcd',
+#        'USER': 'kmziqrjgwyajvy',
+#        'PASSWORD': 'dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89',
+#        'HOST': 'ec2-54-147-33-38.compute-1.amazonaws.com',
+#        'PORT': '5432'
+#    }
+#}
 
 
 # Password validation
