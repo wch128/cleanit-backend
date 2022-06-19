@@ -115,9 +115,9 @@ DATABASE_URL = 'postgres://lyiohmhtsjivhm:998edbeb4f7fddb1ceb5df41c05c273fcfd946
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-#DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
+#DATABASES ['default'].update(db_from_env)
+#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES = {'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600, ssl_require=True ) }
 
 DATABASES = {
     'default': {
