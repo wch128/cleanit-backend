@@ -110,7 +110,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'RecycleITBackend.wsgi.application'
 
-DATABASE_URL = 'postgres://fimvxquenpkbtq:58b4055cbbe306674f347ae3d531dd8beb4e30d17a47c32d13b7bbcd72d26641@ec2-52-206-182-219.compute-1.amazonaws.com:5432/d5d5gkjv7qgcq8'
+#DATABASE_URL = 'postgres://fimvxquenpkbtq:58b4055cbbe306674f347ae3d531dd8beb4e30d17a47c32d13b7bbcd72d26641@ec2-52-206-182-219.compute-1.amazonaws.com:5432/d5d5gkjv7qgcq8'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -118,7 +118,7 @@ DATABASE_URL = 'postgres://fimvxquenpkbtq:58b4055cbbe306674f347ae3d531dd8beb4e30
 db_from_env = dj_database_url.config(conn_max_age=600)
 #DATABASES ['default'].update(db_from_env)
 #DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
+
 
 DATABASES = {
     'default': {
@@ -130,16 +130,16 @@ DATABASES = {
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#DATABASES = {
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'd4gebd9ckjsrcd',
-#        'USER': 'kmziqrjgwyajvy',
-#        'PASSWORD': 'dba72c2fdcc4e0c3ed62c52865a42309741b9fb818df9277e147598354399f89',
-#        'HOST': 'ec2-54-147-33-38.compute-1.amazonaws.com',
-#        'PORT': '5432'
-#    }
-#}
+DATABASES = {
+     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd5d5gkjv7qgcq8',
+        'USER': 'fimvxquenpkbtq',
+        'PASSWORD': '58b4055cbbe306674f347ae3d531dd8beb4e30d17a47c32d13b7bbcd72d26641',
+        'HOST': 'ec2-52-206-182-219.compute-1.amazonaws.com',
+        'PORT': '5432'
+    }
+}
 
 
 # Password validation
