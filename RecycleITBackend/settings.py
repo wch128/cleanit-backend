@@ -26,13 +26,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4ye@ngsf!+evykub85q56r@tx-ulrh=%-6(3t--!s(@n1j+*v_'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','cleanit-backend.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','cleanit-backend.herokuapp.com']
 
 
 # Application definition
@@ -59,7 +59,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 cloudinary.config(
     cloud_name = 'abdullahajaffer96',
@@ -86,8 +88,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'mykey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 
 TEMPLATES = [
@@ -113,16 +115,16 @@ DATABASE_URL = 'postgres://lyiohmhtsjivhm:998edbeb4f7fddb1ceb5df41c05c273fcfd946
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES = {'default':  dj_database_url.config(conn_max_age=600, ssl_require=True)}
+DATABASES['default'].update(db_from_env)
 #DATABASES = {'default': dj_database_url.config(default=DATABASE_URL ) }
 
-#DATABASES = {
-  #  'default': {
-  #      'ENGINE': 'django.db.backends.sqlite3',
-   #     'NAME': 'mydatabase',
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
         
-  #  }
-#}
+    }
+}
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -177,13 +179,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-#STATIC_URL = "/static/"
-#django_heroku.settings(locals())
+#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
